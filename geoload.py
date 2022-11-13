@@ -2,6 +2,7 @@ import requests
 import sqlite3
 import json
 
+#if you have Google Places API key, enter it here
 api_key= False
 if api_key is False:
     #chuck's API. a list of addresses which we can pull the Json files for each address
@@ -58,7 +59,9 @@ for line in fhand:
     except: 
         print(file.text) 
         continue
-    if "status" not in js or (js["status"] != "OK" and js["status"] != "ZERO_RESULTS") : #checks the validity of the json file
+    
+    #checks the validity of the json file
+    if "status" not in js or (js["status"] != "OK" and js["status"] != "ZERO_RESULTS") : 
         print("==== Failure To Retrieve ====")
         print(file.text)
         break
