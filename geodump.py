@@ -4,11 +4,14 @@ import sqlite3
 conn = sqlite3.connect("geodata.sqlite")
 cur = conn.cursor()
 
+#connect to the database file
 cur.execute("SELECT * FROM Locations")
-fhand = open("where.js","w") 
+#open the js file
+fhand = open("where.js","w")
 fhand.write("myData = [\n") 
 count = 0
 
+#read through the database file
 for row in cur :
     data = row[1]
     try: 
